@@ -77,6 +77,12 @@ function App() {
     medium: "#FFC107",
     high: "#F44336",
   };
+
+  //Priority filtering
+  const priorityFilteredTaks =
+    priorityFilter === "all"
+      ? tasks
+      : tasks.filter((task) => task.priority === priorityFilter);
   return (
     <>
       <div className="flex flex-col justify-center items-center">
@@ -133,7 +139,7 @@ function App() {
 
         <div className="mt-5 w-3/5">
           <ul>
-            {tasks.map((task) => (
+            {priorityFilteredTaks.map((task) => (
               <li
                 key={task.id}
                 className="border-2 mb-2 px-2 py-3 rounded-lg "
